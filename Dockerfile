@@ -9,6 +9,7 @@ RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 WORKDIR /go/src/scratch/
 
 # This takes forever, so do it early on
+RUN go get -u github.com/golang/dep/cmd/dep
 RUN echo "package main" >> dummy.go
 RUN dep init
 RUN dep ensure -v -add github.com/ThalesIgnite/crypto11
